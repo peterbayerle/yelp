@@ -25,3 +25,6 @@ def format_to_JSON(keyword, og_path, new_path):
     formatted_file.close()
 
 # format_to_JSON("businesses", "../yelp_dataset/unformatted/business.json", "../yelp_dataset/formatted/business.json")
+
+def JSON_to_df(json_path):
+    pass
