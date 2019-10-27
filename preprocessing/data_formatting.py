@@ -5,7 +5,7 @@ def format_to_JSON(keyword, og_path, new_path):
     Converts file of JS objects into JSON file with a single JS object whose
     key is 'keyword' and whose value is a list of the JS objects.
 
-    'og_path' is the path of the unformatted file and and 'new_path' is the
+    'og_path' is the path of the unformatted file and 'new_path' is the
     desired path of the formatted file.
     '''
 
