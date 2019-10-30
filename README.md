@@ -2,4 +2,4 @@
 
 <h3> Visualization of approx 190,000 restraunts' star ratings</h3>
 ![star rating visualization]
-(https://github.com/peterbayerle/yelp_ds/blob/master/static/star_distribution.png)
+(https://raw.githubusercontent.com/peterbayerle/yelp_ds/master/static/star_distribution.png)
