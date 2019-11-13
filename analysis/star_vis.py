@@ -1,10 +1,8 @@
 import json
-# from pandas import DataFrame
 from matplotlib.pyplot import subplots, show
 
-yelp_file = open("yelp_dataset/formatted/business.json")
+yelp_file = open("yelp_dataset/business_data/business.json")
 data = json.load(yelp_file)
-# businesses = DataFrame(data["businesses"])
 
 rating_freq = {}
 for business in data["businesses"]:

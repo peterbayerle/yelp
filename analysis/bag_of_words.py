@@ -5,25 +5,29 @@ from pandas import DataFrame, read_json
 cur_path = os.path.dirname(__file__)
 new_path = os.path.relpath('../yelp_dataset/review.json', cur_path)
 
-chunksize = 100000
+chunksize = 10
 reader = read_json(new_path, lines=True, chunksize=chunksize)
+reviews = []
 count = 0
 for chunk in reader:
     for i in range(chunksize):
-        print(chunk.loc[:, "business_id"][i])
+        reviews.append(chunk.loc[:, "text"][i])
     break
 
-filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n'
-rev_l = rev.split()
+#bag of words model
 
-bag = {}
-for word in rev_l:
-    word = word.strip(filters).lower()
-    if word in bag.keys():
-        bag[word] += 1
-    else:
-        bag[word] = 1
-#
-# print(bag)
+def bag_of_words(rev):
+    filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n'
+    rev_l = rev.split()
+    bag = {}
+    for word in rev_l:
+        word = word.strip(filters).lower()
+        if word in bag.keys():
+            bag[word] += 1
+        else:
+            bag[word] = 1
+    return bag
 
-# reviews = DataFrame(data["reviews"]).fillna(0)
+bags = [bag_of_words(rev) for rev in reviews]
+
+print(bags[0])
