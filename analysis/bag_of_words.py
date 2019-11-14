@@ -1,21 +1,21 @@
 import os
 import json
 from pandas import DataFrame, read_json
+from langdetect import detect
 
 cur_path = os.path.dirname(__file__)
 new_path = os.path.relpath('../yelp_dataset/review.json', cur_path)
 
-chunksize = 10
+chunksize = 1000
 reader = read_json(new_path, lines=True, chunksize=chunksize)
 reviews = []
-count = 0
 for chunk in reader:
     for i in range(chunksize):
         reviews.append(chunk.loc[:, "text"][i])
     break
+print("reviews read")
 
 #bag of words model
-
 def bag_of_words(rev):
     filters = '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n'
     rev_l = rev.split()
@@ -28,6 +28,11 @@ def bag_of_words(rev):
             bag[word] = 1
     return bag
 
-bags = [bag_of_words(rev) for rev in reviews]
+bags = []
+for rev in reviews:
+    bags.append(bag_of_words(rev))
+print("bags computed")
 
-print(bags[0])
+bag_df = DataFrame(bags)
+bag_df = bag_df.loc[:, (bag_df.isnull().sum(axis=0) <= chunksize * (1 - 0.05))]
+print(len(bag_df.columns))
