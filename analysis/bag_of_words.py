@@ -1,7 +1,6 @@
 import os
 import json
 from pandas import DataFrame, read_json
-from langdetect import detect
 
 cur_path = os.path.dirname(__file__)
 new_path = os.path.relpath('../yelp_dataset/review.json', cur_path)
