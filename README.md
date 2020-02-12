@@ -1,6 +1,6 @@
 ## Yelp Review Classifier
 
-Model to classify Yelp reviews as positive (>=3.5 stars) or negative (<3 stars).
+Model to classify Yelp reviews as positive (>=3.5 stars) or negative (<3.5 stars).
 
 ### 1. Results
 12-fold cross validation on 25,000 yelp reviews:
@@ -64,7 +64,7 @@ The `YelpReviewLoader` object in the `intake.py` module loads this pickle file i
 
 The model fitting process begins by normalizing and vectorizing the reviews. The `Normalize` object in the `transform.py` module removes all stopwords/punctuation from the reviews. Lemanization occurs at this stage as well. Reviews are vectorized by computing the tf-idf metric for each token.
 
-After the data has been normalized and vectorized, the data is fitted to a classification model. The preprocessing/model fitting is facilitated by the `create_pipeline()` function in the `pipeline.py` module, which wraps the transformations/estimators in a `Pipeline` object.
+After the data has been normalized and vectorized, the classification is fit to the data. The preprocessing/model fitting is facilitated by the `create_pipeline()` function in the `pipeline.py` module, which wraps the transformations/estimators in a `Pipeline` object.
 
 ### 4. Review visualization
 #### Visualization of approx 190,000 restaurants' star ratings
