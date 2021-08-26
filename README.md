@@ -2,7 +2,7 @@
 
 Model to classify Yelp reviews as positive (>=3.5 stars) or negative (<3.5 stars) using only their text.
 
-I've converted this project into a [tutorial](https://github.com/peterbayerle/huggingface_notebook) featured in the official 🤗Transformers documentation (‼️🥳)
+I've converted this project into a [tutorial](https://github.com/peterbayerle/huggingface_notebook) featured in the official 🤗Transformers documentation
 
 ## 1. Results
 Model performance when trained on 10k reviews and tested on 10k reviews:
